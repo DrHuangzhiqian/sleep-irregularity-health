@@ -283,10 +283,3 @@ ggsave(
   height = 4,
   width = 6
 )
-
-#保存CV R2的数据
-fwrite(
-  data.table(R2 = lasso_caret$resample$Rsquared),
-  file = "SRI_pro_lasso_cv_R2_values.tsv",
-  sep = "\t"
-)
