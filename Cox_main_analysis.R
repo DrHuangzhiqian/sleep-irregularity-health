@@ -11,46 +11,10 @@ library(doParallel)
 library(foreach)
 
 # ==============================================================
-# 1. 协变量定义
+# 协变量定义
 # ==============================================================
 covariates1 <- c("age_test", "MVPA", "season", "sex", "race", "tdi", "smk", "alc", "bmi")
 covariates2 <- c(covariates1, "SleepDurationInSpt_AD_T5A5_mn")
-
-# ==============================================================
-# 2. 读取基础数据
-# ==============================================================
-# --- 2.1 GGIR 睡眠数据 ---
-GGIR_selected <- fread("~/GGIR_selected.csv") %>%
-  dplyr::select(
-    eid,
-    SleepDurationInSpt_AD_T5A5_mn,
-    SleepRegularityIndex_AD_T5A5_mn,
-    age_test,
-    MVPA,
-    season
-  ) %>%
-  mutate(
-    season = as.factor(season),
-    SRI = SleepRegularityIndex_AD_T5A5_mn,
-    SRI_scaled = as.numeric(-scale(SleepRegularityIndex_AD_T5A5_mn))
-  )
-
-# --- 2.2 协变量数据 ---
-CovariatesImputed <- read.csv("~/CovariatesImputed.csv", stringsAsFactors = FALSE) %>%
-  mutate(across(c(sex, race, smk, alc, cl_med, dm), as.factor))
-
-# ==============================================================
-# 3. 输入输出路径
-# ==============================================================
-outcome_folder_name <- "~/12_outcomes"
-output_folder <- "~/12_outcomes_results"
-
-if (!dir.exists(output_folder)) {
-  dir.create(output_folder, recursive = TRUE)
-}
-
-# 获取所有结局文件
-outcome_files <- list.files(outcome_folder_name, pattern = "\\.tsv$", full.names = TRUE)
 
 # ==============================================================
 # 4. 并行设置
