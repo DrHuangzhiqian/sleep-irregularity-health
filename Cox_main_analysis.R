@@ -570,5 +570,3 @@ saveWorkbook(
   file.path(output_folder, "all_outcomes_combined_results.xlsx"),
   overwrite = TRUE
 )
-
-cat("全部结果已汇总保存。\n")
