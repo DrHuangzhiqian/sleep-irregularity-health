@@ -3,9 +3,16 @@ library(dplyr)
 library(TwoSampleMR)
 library(ggplot2)
 
-source("/path/to/ld_clump.R")
+ld_clump_script <- ""
+exposure_gwas_file <- ""
+reference_panel_prefix <- ""
+plink_executable <- ""
+outcome_gwas_file <- ""
+output_root <- ""
 
-gwas_all <- fread("/path/to/GWAS_summary_statistics.csv")
+source(ld_clump_script)
+
+gwas_all <- fread(exposure_gwas_file)
 
 gwas_all <- gwas_all %>%
   mutate(
@@ -67,8 +74,8 @@ expo_rt <- ld_clump_local(
   clump_kb = 10000,
   clump_r2 = 0.01,
   clump_p = 1,
-  bfile = "/path/to/reference_panel",
-  plink_bin = "/path/to/plink"
+  bfile = reference_panel_prefix,
+  plink_bin = plink_executable
 )
 
 expo_rt$id <- NULL
@@ -77,7 +84,7 @@ expo_rt$pval <- NULL
 
 outc_rt <- read_outcome_data(
   snps = expo_rt$SNP,
-  filename = "/path/to/outcome_GWAS_summary_statistics.gz",
+  filename = outcome_gwas_file,
   sep = "\t",
   snp_col = "XXX",
   beta_col = "XXX",
@@ -105,7 +112,7 @@ harm_rt$meanf <- mean(harm_rt$f, na.rm = TRUE)
 harm_rt <- harm_rt[harm_rt$f > 10, ]
 
 outcome <- "XXX"
-out_dir <- file.path("/path/to/output_directory", outcome)
+out_dir <- file.path(output_root, outcome)
 
 if (!dir.exists(out_dir)) {
   dir.create(out_dir, recursive = TRUE)
