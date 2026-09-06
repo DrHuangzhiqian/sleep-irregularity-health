@@ -6,7 +6,7 @@ This repository provides the analytical code and reproducible scripts underlying
 
 Using large-scale data from the UK Biobank, this study evaluates accelerometer-derived sleep irregularity in relation to multi-system disease outcomes, metabolomic and proteomic signatures, inflammatory markers, genetic architecture, potential causal pathways, and longitudinal sleep regularity trajectories.
 
-The analytical workflow includes sleep phenotype derivation, prospective epidemiological modelling, omics association analyses, mediation analyses, genome-wide association analyses, Mendelian randomization, and longitudinal change pattern analyses.
+The analytical workflow includes sleep phenotype derivation, prospective epidemiological modelling, omics association analyses, mediation analyses, genome-wide association analyses, and longitudinal change pattern analyses.
 
 ## Code Description
 
@@ -29,7 +29,6 @@ The main scripts included in this repository are:
 | `single_Prote_parado.R` | Performs single-protein mediation analyses. |
 | `single_INFLA_parado.R` | Performs single inflammatory marker mediation analyses. |
 | `score_INFLA_med.R` | Performs INFLA-score mediation analyses across outcomes. |
-| `MR analysis.R` | Performs Mendelian randomization analyses of sleep irregularity and health outcomes. |
 | `longitudinal_change_patterns.R` | Performs analyses of longitudinal change patterns in sleep regularity. |
 | `regenie_step1_template.sh` | Provides a template for REGENIE step 1 genome-wide association analysis. |
 | `regenie_step2_template.sh` | Provides a template for REGENIE step 2 chromosome-wise association testing. |
@@ -42,9 +41,9 @@ Analyses were performed on the UK Biobank Research Analysis Platform using:
 
 - R software, version 4.4.1
 - PLINK2 for genome-wide association analyses
-- Additional R packages for epidemiological, omics, mediation, and Mendelian randomization analyses
+- Additional R packages for epidemiological, omics, mediation, and genetic analyses
 
-The main R packages used include packages for data processing, survival analysis, regression modelling, visualization, penalized regression, mediation analysis, and Mendelian randomization.
+The main R packages used include packages for data processing, survival analysis, regression modelling, visualization, penalized regression, and mediation analysis.
 
 No non-standard hardware is required for running small-scale scripts or analyses using the demonstration dataset. Full-scale analyses using individual-level UK Biobank data, omics data, or genome-wide genetic data require access to the UK Biobank Research Analysis Platform or other high-performance computing resources.
 
@@ -76,7 +75,7 @@ install.packages(c(
 ))
 ```
 
-Specialized packages for Mendelian randomization or genetic analyses should be installed according to their official documentation.
+Specialized packages for genetic analyses should be installed according to their official documentation.
 
 Typical installation time for common R packages is approximately 10–30 minutes on a standard desktop computer.
 
