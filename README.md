@@ -6,7 +6,7 @@ This repository provides the analytical code and reproducible scripts underlying
 
 Using large-scale data from the UK Biobank, this study evaluates accelerometer-derived sleep irregularity in relation to multi-system disease outcomes, metabolomic and proteomic signatures, inflammatory markers, genetic architecture, potential causal pathways, and longitudinal sleep regularity trajectories.
 
-The analytical workflow includes sleep phenotype derivation, prospective epidemiological modelling, omics association analyses, mediation analyses, genome-wide association analyses, Mendelian randomization, and quasi-interventional trajectory analyses.
+The analytical workflow includes sleep phenotype derivation, prospective epidemiological modelling, omics association analyses, mediation analyses, genome-wide association analyses, Mendelian randomization, and longitudinal change pattern analyses.
 
 ## Code Description
 
@@ -30,7 +30,11 @@ The main scripts included in this repository are:
 | `single_INFLA_parado.R` | Performs single inflammatory marker mediation analyses. |
 | `score_INFLA_med.R` | Performs INFLA-score mediation analyses across outcomes. |
 | `MR analysis.R` | Performs Mendelian randomization analyses of sleep irregularity and health outcomes. |
-| `quasi-interventional analysis.R` | Performs quasi-interventional analyses of sleep regularity trajectories. |
+| `longitudinal_change_patterns.R` | Performs analyses of longitudinal change patterns in sleep regularity. |
+| `regenie_step1_template.sh` | Provides a template for REGENIE step 1 genome-wide association analysis. |
+| `regenie_step2_template.sh` | Provides a template for REGENIE step 2 chromosome-wise association testing. |
+| `PRSCS_template.sh` | Provides a template for PRS-CS-auto posterior effect estimation. |
+| `prs_plink2_template.sh` | Provides a template for PLINK2-based polygenic risk score calculation. |
 
 ## System Requirements
 
